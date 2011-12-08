@@ -34,7 +34,7 @@ To send a notification simply call the `send` method on the object. The first pa
 
 You can also use the other syntax. Let's send a live tile update!
 
-	var toast = new mpns.tile();
+	var toast = new mpns.liveTile();
 	toast.title: 'My App';
 	toast.backgroundUri: 'http://sample.com/image.png';
 	toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE', function(err,res) {
@@ -45,9 +45,9 @@ You can also use the other syntax. Let's send a live tile update!
 ### Results object information
 A results object is passed back through the callback and has important information from MPNS.
 
-- deviceConnectionStatus: The device status as reported by the service.
-- notificationStatus: The status of your provided notification.
-- subscriptionStatus: The status of the subscription URI.
+- `deviceConnectionStatus`: The device status as reported by the service.
+- `notificationStatus`: The status of your provided notification.
+- `subscriptionStatus`: The status of the subscription URI.
 
 The object will also contain all the key fields for your toast or live tile update, plus the pushType. This makes it easy to store this information in a history log somewhere in the ether.
 
@@ -56,9 +56,9 @@ It is very important as a consumer that you store appropriate actionable data ab
 
 Remember to take action on that information in order to be a good MPNS citizen. These values may be set in the error object and of interest to you:
 
-- minutesToDelay: If this is present, it is the suggested minimum amount of time that you should wait until making another request to the same subscription URI. For HTTP 412s, for example, the minimum time is one hour and so the returned value defaults to 61.
-- shouldDeleteChannel: If this is set to `true`, the channel is gone according to MPNS. Delete it from your channel/subscription database and never look back.
-- error: If an error is captured while trying to make the HTTP request, this will be set to that error callback instance.
+- `minutesToDelay`: If this is present, it is the suggested minimum amount of time that you should wait until making another request to the same subscription URI. For HTTP 412s, for example, the minimum time is one hour and so the returned value defaults to 61.
+- `shouldDeleteChannel`: If this is set to `true`, the channel is gone according to MPNS. Delete it from your channel/subscription database and never look back.
+- `error`: If an error is captured while trying to make the HTTP request, this will be set to that error callback instance.
 
 ### A note about Windows Phone 7.5
 This module permits sending toasts and tiles specific to Mango. If you include the `param` field when sending a push to a 7.0 (first Windows Phone release) phone, unfortunately it may not be received, or will error out the subscription.
