@@ -6,6 +6,10 @@ This is one of my very first Node.js projects so feedback and patience appreciat
 
 ## Installation
 
+Via [npm][]:
+
+	$ npm install mspn
+	
 As a submodule of your Git project
 
 	$ git submodule add http://github.com/jeffwilcox/mpns.git mpns
