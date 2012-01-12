@@ -21,7 +21,7 @@ As a submodule of your Git project
 	var mpns = require('mpns');
 
 ### Create a new notification
-You can create a new notification object (either of type live tile or toast). Raw notifications are not yet supported.
+You can create a new notification object (either of type live tile or toast).
 
 Property names for the notification object directly correlate to the names used in the MPNS XML payload as documented on MSDN. Properties can either be set directly on the object (such as toast.text1) or by passing the values in as options to the constructor.
 
@@ -45,6 +45,13 @@ You can also use the other syntax. Let's send a live tile update!
 		if (err) console.dir(err);
 		else console.dir(res);
 	});
+
+### Sending a raw notification
+When creating the notification object, either provide the raw payload first, or as the `options.payload` property.
+
+	var raw = new mpns.rawNotification('My Raw Payload', options);
+
+Today the type on the request is set to UTF8 explicitly.
 
 ### Results object information
 A results object is passed back through the callback and has important information from MPNS.
@@ -97,3 +104,7 @@ limitations under the License.
 1.0.0:
 
 * Initial implementation offering basic live tile and toast (no raw) support.
+
+1.0.1:
+
+* Adds raw notification type support.
