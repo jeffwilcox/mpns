@@ -108,3 +108,7 @@ limitations under the License.
 1.0.1:
 
 * Adds raw notification type support.
+
+1.0.2:
+
+* Fixes some small formatting issues.
