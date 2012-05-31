@@ -2,8 +2,6 @@
 
 Send toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS). Intended for the cloud and Node.js.
 
-This is one of my very first Node.js projects so feedback and patience appreciated. I hope it helps!
-
 ## Installation
 
 Via [npm][]:
@@ -78,7 +76,8 @@ Take care when registering your subscription channels with your cloud service to
 
 ## Credits
 
-Written and maintained by [Jeff Wilcox].
+Written and maintained by [Jeff Wilcox] with contributions from:
+  Shawn Burke : https://github.com/shawnburke
 
 ## License
 
@@ -101,14 +100,19 @@ limitations under the License.
 
 ## Changelog
 
-1.0.0:
+1.0.3:
 
-* Initial implementation offering basic live tile and toast (no raw) support.
+* Addresses issues when using numbers to set the tile data
+* Cleans up string encoding functions.
+
+1.0.2:
+
+* Fixes some small formatting issues.
 
 1.0.1:
 
 * Adds raw notification type support.
 
-1.0.2:
+1.0.0:
 
-* Fixes some small formatting issues.
+* Initial implementation offering basic live tile and toast (no raw) support.
