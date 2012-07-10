@@ -76,12 +76,15 @@ Take care when registering your subscription channels with your cloud service to
 
 ## Credits
 
-Written and maintained by [Jeff Wilcox] with contributions from:
-  Shawn Burke : https://github.com/shawnburke
+NPM module written and maintained by [Jeff Wilcox] with contributions from:
+
+- Jeff Wilcox : https://github.com/jeffwilcox
+- Shawn Burke : https://github.com/shawnburke
+- Jeremie Pelletier : https://github.com/ddude
 
 ## License
 
-Copyright 2011 Jeff Wilcox
+Copyright Jeff Wilcox
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -99,6 +102,10 @@ limitations under the License.
 [npm]: http://github.com/isaacs/npm
 
 ## Changelog
+
+1.0.4:
+
+* Adds support for Node.js through 0.9.0
 
 1.0.3:
 
