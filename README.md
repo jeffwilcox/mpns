@@ -16,38 +16,45 @@ As a submodule of your Git project
 ## Usage
 ### Load in the module
 
-	var mpns = require('mpns');
+```javascript
+var mpns = require('mpns');
+```
 
 ### Create a new notification
 You can create a new notification object (either of type live tile or toast).
 
 Property names for the notification object directly correlate to the names used in the MPNS XML payload as documented on MSDN. Properties can either be set directly on the object (such as toast.text1) or by passing the values in as options to the constructor.
 
-	options =   { text1: 'Hello!'
-				, text2: 'Great to see you today.'
-				};
-
-	var toast = new mpns.toast(options);
+```javascript
+options = { text1: 'Hello!', text2: 'Great to see you today.' };
+var toast = new mpns.toast(options);
+```
 
 ### Sending a notification
 To send a notification simply call the `send` method on the object. The first parameter is the HTTP URI to the MPNS endpoint of the client you'd like to send the notification to. You may provide an optional callback function as well.
 
-	toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE');
+```javascript
+toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE');
+```
 
 You can also use the other syntax. Let's send a live tile update!
 
-	var toast = new mpns.liveTile();
-	toast.title: 'My App';
-	toast.backgroundUri: 'http://sample.com/image.png';
-	toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE', function(err,res) {
-		if (err) console.dir(err);
-		else console.dir(res);
-	});
+```javascript
+var toast = new mpns.liveTile();
+toast.title: 'My App';
+toast.backgroundUri: 'http://sample.com/image.png';
+toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE', function(err,res) {
+	if (err) console.dir(err);
+	else console.dir(res);
+});
+```
 
 ### Sending a raw notification
 When creating the notification object, either provide the raw payload first, or as the `options.payload` property.
 
-	var raw = new mpns.rawNotification('My Raw Payload', options);
+```javascript
+var raw = new mpns.rawNotification('My Raw Payload', options);
+```
 
 Today the type on the request is set to UTF8 explicitly.
 
