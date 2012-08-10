@@ -6,7 +6,7 @@ Send toast and live tile updates to Windows Phones through the Microsoft Push No
 
 Via [npm][]:
 
-	$ npm install mspn
+	$ npm install mpns
 	
 As a submodule of your Git project
 
