@@ -40,10 +40,10 @@ toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_H
 You can also use the other syntax. Let's send a live tile update!
 
 ```javascript
-var toast = new mpns.liveTile();
-toast.title: 'My App';
-toast.backgroundUri: 'http://sample.com/image.png';
-toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE', function(err,res) {
+var tile = new mpns.liveTile();
+tile.title: 'My App';
+tile.backgroundUri: 'http://sample.com/image.png';
+tile.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE', function(err,res) {
 	if (err) console.dir(err);
 	else console.dir(res);
 });
