@@ -20,33 +20,54 @@ As a submodule of your Git project
 var mpns = require('mpns');
 ```
 
-### Create a new notification
-You can create a new notification object (either of type live tile or toast).
+### Sending a toast
+To send a toast, simply call the `sendToast` method on mpns.
+
+```javascript
+var mpns = require('mpns');
+mpns.sendToast(pushUri, 'Bold Text', 'This is normal text');
+
+// Optional callback
+mpns.sendToast(pushUri, text1, text2, callback);
+```
+
+Each of the methods that send tile and toast notifications have two alternative parameter signatures:
+
+```
+send*(pushUri, [options], [callback]) 
+send*(pushUri, string1, string2, ..., [callback])
+```
+
+The ordering of the parameters in the non-object calling method assumes ordering as documented in the toast or tile-specific sections below.
+
+For toasts, the properties and ordering for them:
+
+* `text1` the text of the toast, this first text will appear bold on the phone
+* `text2` additional toast text, will appear in the normal font. It does not wrap.
+* `param` optional URI parameter within your application specifying the XAML page to open within the app, along with any query string parameters for the page's context
+
+### Sending a live tile update
+To send a tile update, call the `sendTile` method on mpns.
+
+It is recommended that you use the options syntax for this call as it is possible for the live tile update to include just one component in the update, say the tile count, and not update other properties.
+
+The option names or ordering for parameters is:
+
+* `backgroundImage` URI to the background image for the tile. Beware that the URI may be restricted to the whitelisted domain names that you provided in your application.
+* `count` the number to appear in the tile
+* `title` the title of the tile
+* `backBackgroundImage` URI to the image to be on the flip side of the tile
+* `backTitle` optional title for the back tile
+* `backContent` optional content for the back tile (appears in a larger font size)
+
+### Create a new notification object
+You can create a new notification object (either of type live tile or toast). This is the original style for this module but it is now recommended that you use the shorter `send*` syntax on the mpns object itself. This aligns with the WNS module for Windows in its simplicity.
 
 Property names for the notification object directly correlate to the names used in the MPNS XML payload as documented on MSDN. Properties can either be set directly on the object (such as toast.text1) or by passing the values in as options to the constructor.
 
 ```javascript
 options = { text1: 'Hello!', text2: 'Great to see you today.' };
 var toast = new mpns.toast(options);
-```
-
-### Sending a notification
-To send a notification simply call the `send` method on the object. The first parameter is the HTTP URI to the MPNS endpoint of the client you'd like to send the notification to. You may provide an optional callback function as well.
-
-```javascript
-toast.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE');
-```
-
-You can also use the other syntax. Let's send a live tile update!
-
-```javascript
-var tile = new mpns.liveTile();
-tile.title: 'My App';
-tile.backgroundUri: 'http://sample.com/image.png';
-tile.send('http://sn1.notify.live.net/throttledthirdparty/01.00/YOUR_ENDPOINT_HERE', function(err,res) {
-	if (err) console.dir(err);
-	else console.dir(res);
-});
 ```
 
 ### Sending a raw notification
@@ -109,6 +130,10 @@ limitations under the License.
 [npm]: http://github.com/isaacs/npm
 
 ## Changelog
+
+1.1.0:
+
+* Adds `sendText` and `sendTile` methods more consistent with the WNS module, removing the need to create a new object, only to then call send on it with a push URI.
 
 1.0.4:
 
