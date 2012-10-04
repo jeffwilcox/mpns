@@ -131,6 +131,10 @@ limitations under the License.
 
 ## Changelog
 
+1.1.1:
+
+* Adds parameter validation that will throw, for robustness.
+
 1.1.0:
 
 * Adds `sendText` and `sendTile` methods more consistent with the WNS module, removing the need to create a new object, only to then call send on it with a push URI.
