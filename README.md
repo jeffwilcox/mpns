@@ -59,6 +59,14 @@ The option names or ordering for parameters is:
 * `backBackgroundImage` URI to the image to be on the flip side of the tile
 * `backTitle` optional title for the back tile
 * `backContent` optional content for the back tile (appears in a larger font size)
+* `id` optional ID for a secodary tile
+
+Some devices support an enhanced tile format called a "flip tile", which supports some additional parameters. This kind of tile can be sent using the `sendFlipTile` method, which supports *all of the above* parameters as well as:
+* `smallbackgroundImage` URI to the background image for the tile when it is shrunk to small size
+* `wideBackgroundImage` URI to the background image for the tile when it is expanded to wide size
+* `wideBackContent` content for the back tile (appears in a larger font size) when the tile is expanded to wide size
+* `wideBackBackgroundImage` URI to the image to be on the flip side of the tile when the tile is expanded to wide size
+
 
 ### Create a new notification object
 You can create a new notification object (either of type live tile or toast). This is the original style for this module but it is now recommended that you use the shorter `send*` syntax on the mpns object itself. This aligns with the WNS module for Windows in its simplicity.
@@ -97,10 +105,18 @@ Remember to take action on that information in order to be a good MPNS citizen. 
 - `shouldDeleteChannel`: If this is set to `true`, the channel is gone according to MPNS. Delete it from your channel/subscription database and never look back.
 - `error`: If an error is captured while trying to make the HTTP request, this will be set to that error callback instance.
 
-### A note about Windows Phone 7.5
-This module permits sending toasts and tiles specific to Mango. If you include the `param` field when sending a push to a 7.0 (first Windows Phone release) phone, unfortunately it may not be received, or will error out the subscription.
+### A note about different Windows Phone versions
+This module permits sending toasts and tiles supported only on specific versions of Windows Phone. If you use those features on a version where they are unsupported, unfortunately notifications may not be received, or will error out the subscription.
 
 Take care when registering your subscription channels with your cloud service to include the application platform version of the app (7.1 for Mango apps). To rock, maybe also grab the OS version and deployed app version. That information can be helpful when supporting customers.
+
+Here is a list of features that are only supported in given versions of Windows Phone:
+* Only supported in Windows Phone 7.5+ (Mango)
+    * Including the `param` field when sending a push
+    * Including the `id` parameter when sending a tile
+* Only supported in Windows Phone 7.8+
+    * Sending "flip" tiles
+
 
 ## Credits
 
@@ -130,6 +146,11 @@ limitations under the License.
 [npm]: http://github.com/isaacs/npm
 
 ## Changelog
+
+1.2.0:
+
+* Adds support for `sendFlipTile` method to support the new kinds of tiles added in 7.8+ devices
+* Adds support for secondary tiles via the `id` parameter
 
 1.1.1:
 
