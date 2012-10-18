@@ -103,7 +103,7 @@ Remember to take action on that information in order to be a good MPNS citizen. 
 
 - `minutesToDelay`: If this is present, it is the suggested minimum amount of time that you should wait until making another request to the same subscription URI. For HTTP 412s, for example, the minimum time is one hour and so the returned value defaults to 61.
 - `shouldDeleteChannel`: If this is set to `true`, the channel is gone according to MPNS. Delete it from your channel/subscription database and never look back.
-- `error`: If an error is captured while trying to make the HTTP request, this will be set to that error callback instance.
+- `innerError`: If an error is captured while trying to make the HTTP request, this will be set to that error callback instance.
 
 ### A note about different Windows Phone versions
 This module permits sending toasts and tiles supported only on specific versions of Windows Phone. If you use those features on a version where they are unsupported, unfortunately notifications may not be received, or will error out the subscription.
@@ -146,6 +146,11 @@ limitations under the License.
 [npm]: http://github.com/isaacs/npm
 
 ## Changelog
+
+1.2.1:
+
+* Renames `sendRawNotification` to `sendRaw`
+* Renames `error` parameter to `innerError`
 
 1.2.0:
 
