@@ -151,6 +151,7 @@ limitations under the License.
 
 * Renames `sendRawNotification` to `sendRaw`
 * Renames `error` parameter to `innerError`
+* Fixes issue #8 that `sendRaw` wasn't working
 
 1.2.0:
 
