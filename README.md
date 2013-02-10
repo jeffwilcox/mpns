@@ -49,7 +49,7 @@ For toasts, the properties and ordering for them:
 ### Sending a live tile update
 To send a tile update, call the `sendTile` method on mpns.
 
-It is recommended that you use the options syntax for this call as it is possible for the live tile update to include just one component in the update, say the tile count, and not update other properties.
+It is recommended that you use the options syntax for this call as it is possible for the live tile update to include just one component in the update, say the tile count, and not update other properties. To clear the value of a property, simply pass `null` as the value.
 
 The option names or ordering for parameters is:
 
@@ -125,6 +125,7 @@ NPM module written and maintained by [Jeff Wilcox] with contributions from:
 - Jeff Wilcox : https://github.com/jeffwilcox
 - Shawn Burke : https://github.com/shawnburke
 - Jeremie Pelletier : https://github.com/ddude
+- Yavor Georgiev: https://github.com/yavorg
 
 ## License
 
