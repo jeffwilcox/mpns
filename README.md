@@ -62,7 +62,7 @@ The option names or ordering for parameters is:
 * `id` optional ID for a secodary tile
 
 Some devices support an enhanced tile format called a "flip tile", which supports some additional parameters. This kind of tile can be sent using the `sendFlipTile` method, which supports *all of the above* parameters as well as:
-* `smallbackgroundImage` URI to the background image for the tile when it is shrunk to small size
+* `smallBackgroundImage` URI to the background image for the tile when it is shrunk to small size
 * `wideBackgroundImage` URI to the background image for the tile when it is expanded to wide size
 * `wideBackContent` content for the back tile (appears in a larger font size) when the tile is expanded to wide size
 * `wideBackBackgroundImage` URI to the image to be on the flip side of the tile when the tile is expanded to wide size
