@@ -148,6 +148,10 @@ limitations under the License.
 
 ## Changelog
 
+1.2.3:
+
+* Uses `url.parse` to support hostnames with ports 
+
 1.2.2:
 
 * Allows clearing a property value for tiles
