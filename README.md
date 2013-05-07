@@ -148,6 +148,11 @@ limitations under the License.
 
 ## Changelog
 
+1.2.4:
+
+* Fixes a small typo in smallBackgroundImage (thanks @rs)
+* Adds error handling when URLs cannot be resolved
+
 1.2.3:
 
 * Uses `url.parse` to support hostnames with ports 
