@@ -87,6 +87,37 @@ var raw = new mpns.rawNotification('My Raw Payload', options);
 
 Today the type on the request is set to UTF8 explicitly.
 
+### Using authenticated channels (MTLS)
+You may use authenticated channels for the push notifications. Further information can be found here:http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
+
+Authenticated channels require a TLS client certificate for client authentication against the MPNS server.
+The TLS certificate is registered in your Microsoft Phone Development Dashboard.
+The CN of the certificate is used in the APP as Service Name in the HttpNotificationChannel constructor.
+
+To use authentication you must provide the client certificate (including the private key) to the options of the send* functions.
+The client certificate is used when the pushURI is a https URI.
+
+The following options from tls.connect() can be specified:
+
+* `pfx` Certificate, Private key and CA certificates to use for SSL. Default null.
+* `key` Private key to use for SSL. Default null.
+* `passphrase`  A string of passphrase for the private key or pfx. Default null.
+* `cert` Public x509 certificate to use. Default null.
+* `ca` An authority certificate or array of authority certificates to check the remote host against.
+* `ciphers` A string describing the ciphers to use or exclude.
+* `rejectUnauthorized` If true, the server certificate is verified against the list of supplied CAs. An 'error' event is emitted if verification fails. Verification happens at the connection level, before the HTTP request is sent. Default true.
+
+```javascript
+var options = { 
+	text1: 'Hello!',
+	text2: 'Great to see you today.'
+	cert: fs.readFileSync('mycert.pem'),
+	key: fs.readFileSync('mycertkey.pem')
+	};
+
+mpns.sendToast(httpspushUri, options, callback);
+```
+
 ### Results object information
 A results object is passed back through the callback and has important information from MPNS.
 
