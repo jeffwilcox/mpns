@@ -142,12 +142,13 @@ This module permits sending toasts and tiles supported only on specific versions
 Take care when registering your subscription channels with your cloud service to include the application platform version of the app (7.1 for Mango apps). To rock, maybe also grab the OS version and deployed app version. That information can be helpful when supporting customers.
 
 Here is a list of features that are only supported in given versions of Windows Phone:
-* Only supported in Windows Phone 7.5+ (Mango)
+* For Windows Phone 7.0
+	* Do not use the `param` or other fields as indicated below and it should work OK.
+* Only supported in Windows Phone 7.5+ (Mango/WP 7.1 OS)
     * Including the `param` field when sending a push
     * Including the `id` parameter when sending a tile
-* Only supported in Windows Phone 7.8+
+* Only supported in Windows Phone 7.8+ (including Windows Phone 8)
     * Sending "flip" tiles
-
 
 ## Credits
 
@@ -178,6 +179,10 @@ limitations under the License.
 [npm]: http://github.com/isaacs/npm
 
 ## Changelog
+
+1.2.5:
+
+* Adds support for TLS/HTTPS authenticated push channels
 
 1.2.4:
 
