@@ -63,7 +63,7 @@ suite('mpns', function () {
 
 	test('FlipTileProperties', function () {
 		assert.notEqual(mpns.Properties.flipTile, null);
-		assert.deepEqual(mpns.Properties.flipTile, 
+		assert.deepEqual(mpns.Properties.flipTile.sort(), 
 			[
 			    'backgroundImage',
 			    'count',
@@ -76,7 +76,7 @@ suite('mpns', function () {
 			    'wideBackgroundImage',
 			    'wideBackContent',
 			    'wideBackBackgroundImage'
-			]);
+			].sort());
 	});
 
 	test('OfInterestProperties', function () {
