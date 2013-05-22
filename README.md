@@ -118,6 +118,10 @@ var options = {
 mpns.sendToast(httpspushUri, options, callback);
 ```
 
+### HTTP proxy support
+
+If the options passed into a tile or push call include a `proxy` value, the proxy server information will be used. The string value should be the URI to the proxy, including host, for example: `{ proxy: 'http://yourproxy:8080'}`.
+
 ### Results object information
 A results object is passed back through the callback and has important information from MPNS.
 
@@ -179,6 +183,10 @@ limitations under the License.
 [npm]: http://github.com/isaacs/npm
 
 ## Changelog
+
+1.2.6:
+
+* Adds support for an HTTP proxy via `options.proxy` (thanks @tjunnone)
 
 1.2.5:
 
