@@ -1,5 +1,7 @@
 #mpns
 
+[![build status](https://secure.travis-ci.org/jeffwilcox/mpns.png)](http://travis-ci.org/jeffwilcox/mpns)
+
 Send toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS). Intended for the cloud and Node.js.
 
 ## Installation
