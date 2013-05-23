@@ -6,4 +6,8 @@ DOX = ./node_modules/.bin/dox
 SRC = $(shell find lib/*.js)
 
 test:
-	@./node_modules/.bin/mocha -u tdd
+	@NODE_ENV=test @./node_modules/.bin/mocha \
+		-u tdd
+		--reporter $(REPORTER)
+		$(TESTS)
+
