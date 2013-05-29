@@ -2,7 +2,7 @@
 
 [![build status](https://secure.travis-ci.org/jeffwilcox/mpns.png)](http://travis-ci.org/jeffwilcox/mpns)
 
-Send toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS). Intended for the cloud and Node.js.
+Send toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS). Intended for cloud applications powered by Node.js.
 
 ## Installation
 
@@ -164,6 +164,7 @@ NPM module written and maintained by [Jeff Wilcox] with contributions from:
 - Shawn Burke : https://github.com/shawnburke
 - Jeremie Pelletier : https://github.com/ddude
 - Yavor Georgiev: https://github.com/yavorg
+- Stephan Eckbauer: https://github.com/ste99
 
 ## License
 
