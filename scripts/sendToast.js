@@ -48,6 +48,28 @@ if (args.length == 0) {
 
 var uri = args.shift();
 
+// From: http://www.benjiegillam.com/2012/06/node-dot-js-ssl-certificate-chain/
+// Apparently you need to parse out the chain and make it an array?
+var parseCertificateChain = function (chain) {
+	var   ca = []
+	    , cert = [];
+	chain = chain.split("\n");
+	for (var i = 0, len = chain.length; i < len; i++) {
+	  line = chain[i];
+	  if (!(line.length !== 0)) {
+	    continue;
+	  }
+
+	  cert.push(line);
+	  if (line.match(/-END CERTIFICATE-/)) {
+	    ca.push(cert.join("\n"));
+	    cert = [];
+	  }
+	}
+
+	return ca;
+}
+
 if (uri.indexOf('http') !== 0) {
 	console.log('The first parameter must be a URI.');
 	return help();
@@ -59,13 +81,14 @@ var options = {
 };
 
 var authenticationReady = false;
-var fileEncoding = undefined;
+var fileEncoding = 'utf8';
+
 if (process.env.MPNS_CERT && process.env.MPNS_KEY) {
 	options.cert = fs.readFileSync(process.env.MPNS_CERT, fileEncoding);
 	options.key = fs.readFileSync(process.env.MPNS_KEY, fileEncoding);
 	var ca = process.env.MPNS_CA;
 	if (ca !== undefined) {
-		options.ca = fs.readFileSync(ca, fileEncoding);
+		options.ca = parseCertificateChain(fs.readFileSync(ca, fileEncoding));
 	}
 	authenticationReady = true;
 } else if (process.env.MPNS_PFX) {
