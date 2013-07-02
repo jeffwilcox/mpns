@@ -187,6 +187,14 @@ limitations under the License.
 
 ## Changelog
 
+1.2.8:
+
+* Adds a fix for Node 0.10.10+ to properly consume response data via stream resume
+
+1.2.7:
+
+* Mild refactoring
+
 1.2.6:
 
 * Adds support for an HTTP proxy via `options.proxy` (thanks @tjunnone)
