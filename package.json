@@ -12,7 +12,7 @@
   "main": "./lib/mpns.js",
   "engines": { "node":">= 0.5.0" },
   "scripts": {
-    "test": "mocha -u tdd --reporter spec tests/*.js"
+    "test": "mocha -u tdd --reporter spec test/*.js"
   },
   "devDependencies": {
     "should": "*",
