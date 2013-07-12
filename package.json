@@ -11,7 +11,9 @@
   "repository": "git://github.com/jeffwilcox/mpns.git",
   "main": "./lib/mpns.js",
   "engines": { "node":">= 0.5.0" },
-  "test": "make test",
+  "scripts": {
+    "test": "mocha -u tdd --reporter spec test/*.js"
+  },
   "devDependencies": {
     "should": "*",
     "mocha": "*"
