@@ -69,17 +69,6 @@ Some devices support an enhanced tile format called a "flip tile", which support
 * `wideBackContent` content for the back tile (appears in a larger font size) when the tile is expanded to wide size
 * `wideBackBackgroundImage` URI to the image to be on the flip side of the tile when the tile is expanded to wide size
 
-
-### Create a new notification object
-You can create a new notification object (either of type live tile or toast). This is the original style for this module but it is now recommended that you use the shorter `send*` syntax on the mpns object itself. This aligns with the WNS module for Windows in its simplicity.
-
-Property names for the notification object directly correlate to the names used in the MPNS XML payload as documented on MSDN. Properties can either be set directly on the object (such as toast.text1) or by passing the values in as options to the constructor.
-
-```javascript
-options = { text1: 'Hello!', text2: 'Great to see you today.' };
-var toast = new mpns.toast(options);
-```
-
 ### Sending a raw notification
 When creating the notification object, either provide the raw payload first, or as the `options.payload` property.
 
