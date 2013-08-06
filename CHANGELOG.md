@@ -4,6 +4,10 @@ This document has been superceded by the built-in GitHub releases feature. Find 
 
 ## 2.x
 
+2.0.1:
+
+* Contains a compatibility fix (thanks @yavorg) allowing for an older broken property case name, `smallbackgroundImage` to be translated to `smallBackgroundImage`.
+
 2.0.0:
 
 * createTile, createFlipTile, createToast, createRaw functions separate from send functions.
