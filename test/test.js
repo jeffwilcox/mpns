@@ -145,6 +145,14 @@ suite('mpns', function () {
         assert.deepEqual(tile.backContent, 'backcontent');
     });
 
+    test('CreateFlipTileWithObjectLegacySmallBackgroundImage', function () {
+        var tile = mpns.createFlipTile({
+            smallbackgroundImage : 'smallBackgroundImage'
+        });
+
+        assert.deepEqual(tile.smallBackgroundImage, 'smallBackgroundImage');
+    });
+
     test('CreateTileWithPrimitives', function () {
         var tile = mpns.createTile('', 1, 'hello', '', 'backtitle', 'backcontent');
 
