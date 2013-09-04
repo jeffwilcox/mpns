@@ -69,6 +69,16 @@ Some devices support an enhanced tile format called a "flip tile", which support
 * `wideBackContent` content for the back tile (appears in a larger font size) when the tile is expanded to wide size
 * `wideBackBackgroundImage` URI to the image to be on the flip side of the tile when the tile is expanded to wide size
 
+Another format is called "iconic tile". This can be sent using `sendIconicTile` method with the following parameters:
+* `backgroundColor` hexadecimal color code in format ARGB
+* `count` the number that apper on the right of an icon
+* `title` the title of the tile
+* `iconImage` URI of the normal icon
+* `smallIconImage` URI of the icon for small tile
+* `wideContent1` top line of text shown in a wide tile
+* `wideContent2` second line of text
+* `wideContent3` third line of text
+
 ### Sending a raw notification
 When creating the notification object, either provide the raw payload first, or as the `options.payload` property.
 

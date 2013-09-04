@@ -79,6 +79,22 @@ suite('mpns', function () {
             ].sort());
     });
 
+    test('IconicTileProperties', function () {
+        assert.notEqual(mpns.Properties.iconicTile, null);
+        assert.deepEqual(mpns.Properties.iconicTile.sort(),
+            [
+                'count',
+                'title',
+                'id',
+                'backgroundColor',
+                'iconImage',
+                'smallIconImage',
+                'wideContent1',
+                'wideContent2',
+                'wideContent3'
+            ].sort());
+    });
+
     test('OfInterestProperties', function () {
         assert.notEqual(mpns.Properties.ofInterest, null);
         assert.deepEqual(mpns.Properties.ofInterest.sort(),
@@ -98,6 +114,13 @@ suite('mpns', function () {
                 'wideBackgroundImage',
                 'wideBackContent',
                 'wideBackBackgroundImage',
+
+                'backgroundColor',
+                'iconImage',
+                'smallIconImage',
+                'wideContent1',
+                'wideContent2',
+                'wideContent3',
 
                 'text1',
                 'text2',
@@ -160,5 +183,27 @@ suite('mpns', function () {
         assert.deepEqual(tile.title, 'hello');
         assert.deepEqual(tile.backTitle, 'backtitle');
         assert.deepEqual(tile.backContent, 'backcontent');
+    });
+    
+    test('CreateIconicTileWithObject', function () {
+        var obj = {
+            count: 1,
+            title: 'hello',
+            backgroundColor: '#FFAABBCC',
+            iconImage: '/images/icon.png',
+            smallIconImage: '/images/small-icon.png',
+            wideContent1: 'wide content 1',
+            wideContent2: 'wide content 2',
+            wideContent3: 'wide content 3'
+        };
+        
+        var tile = mpns.createIconicTile(obj);
+
+        assert.deepEqual(tile.count, obj.count);
+        assert.deepEqual(tile.title, obj.title);
+        assert.deepEqual(tile.backgroundColor, obj.backgroundColor);
+        assert.deepEqual(tile.wideContent1, obj.wideContent1);
+        assert.deepEqual(tile.wideContent2, obj.wideContent2);
+        assert.deepEqual(tile.wideContent3, obj.wideContent3);
     });
 });
