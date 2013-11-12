@@ -1,7 +1,7 @@
 {
   "name": "mpns",
   "description": "A Node.js interface to the Microsoft Push Notification Service (MPNS) for Windows Phone.",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "author": "Jeff Wilcox <jeffwilcox+github@gmail.com>",
   "contributors": [ 
     { "name": "Jeff Wilcox", "email": "jeffwilcox+github@gmail.com" },
