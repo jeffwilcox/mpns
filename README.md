@@ -2,7 +2,7 @@
 
 [![build status](https://secure.travis-ci.org/jeffwilcox/mpns.png)](http://travis-ci.org/jeffwilcox/mpns)
 
-Send toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS). Intended for cloud applications powered by Node.js.
+A Node.js module for sending toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS), used by apps such as 4th & Mayor and services such as Azure Mobile Services.
 
 ## Installation
 
@@ -14,6 +14,26 @@ As a submodule of your Git project
 
 	$ git submodule add http://github.com/jeffwilcox/mpns.git mpns
 	$ git submodule update --init
+
+## Target Windows Phone Platforms
+
+- Windows Phone 8.1 support:
+  - Compatible for any Silverlight 8.1 phone apps
+  - WNS recommended for new apps
+- Windows Phone 7.8 support: `[1.2, 2.0)`
+- Windows Phone 7.5 (7.1 OS) support: `[1.1, 2.0)`
+- Windows Phone 7.0 support: `[0.0, 2.0)`
+
+For the best cloud development experience, make sure to store the user's OS version whenever communicating information about the push channel.
+
+### Windows Phone 8.1: Sunsetting MPNS
+
+Now that the developer preview is out for Windows Phone 8.1, the universal apps story shows strong convergence between Windows platforms.
+
+As a result of this, new applications should use the [Windows Notification Service (WNS)](http://msdn.microsoft.com/en-us/library/windows/apps/hh913756.aspx). Existing applications that move to 8.1 as a base or port to Universal Apps should use WNS as well.
+
+I highly recommend the [tjanczuk/wns](https://github.com/tjanczuk/wns) module for this, although it has not yet been updated for the latest 8.1 tile templates, FYI.
+
 
 ## Usage
 ### Load in the module
@@ -91,6 +111,8 @@ Today the type on the request is set to UTF8 explicitly.
 ### Using authenticated channels (MTLS)
 You may use authenticated channels for the push notifications. Further information can be found here:http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
+> Authenticated push channels can be difficult to setup. Note that the WNS path forward from MPNS for Windows Phone 8.1 and newer apps does not require certificates and is a much cleaner way to go if you're building a new app today.
+
 Authenticated channels require a TLS client certificate for client authentication against the MPNS server.
 The TLS certificate is registered in your Microsoft Phone Development Dashboard.
 The CN of the certificate is used in the APP as Service Name in the HttpNotificationChannel constructor.
@@ -141,20 +163,6 @@ Remember to take action on that information in order to be a good MPNS citizen. 
 - `shouldDeleteChannel`: If this is set to `true`, the channel is gone according to MPNS. Delete it from your channel/subscription database and never look back.
 - `innerError`: If an error is captured while trying to make the HTTP request, this will be set to that error callback instance.
 
-### A note about different Windows Phone versions
-This module permits sending toasts and tiles supported only on specific versions of Windows Phone. If you use those features on a version where they are unsupported, unfortunately notifications may not be received, or will error out the subscription.
-
-Take care when registering your subscription channels with your cloud service to include the application platform version of the app (7.1 for Mango apps). To rock, maybe also grab the OS version and deployed app version. That information can be helpful when supporting customers.
-
-Here is a list of features that are only supported in given versions of Windows Phone:
-* For Windows Phone 7.0
-	* Do not use the `param` or other fields as indicated below and it should work OK.
-* Only supported in Windows Phone 7.5+ (Mango/WP 7.1 OS)
-    * Including the `param` field when sending a push
-    * Including the `id` parameter when sending a tile
-* Only supported in Windows Phone 7.8+ (including Windows Phone 8)
-    * Sending "flip" tiles
-
 ## Credits
 
 NPM module written and maintained by [Jeff Wilcox] with contributions from:
@@ -183,11 +191,3 @@ limitations under the License.
 
 [Jeff Wilcox]: http://www.jeff.wilcox.name
 [npm]: http://github.com/isaacs/npm
-
-## Changelog
-
-The changelog has moved over time.
-
-* 1.2.8 and newer: The GitHub releases feature provides this information at https://github.com/jeffwilcox/mpns/releases
-* 0-1.2.8: Available in the [CHANGELOG.md](https://github.com/jeffwilcox/mpns/blob/master/CHANGELOG.md) markdown file
-
