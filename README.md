@@ -1,4 +1,4 @@
- #mpns
+# mpns
 
 [![build status](https://secure.travis-ci.org/jeffwilcox/mpns.png)](http://travis-ci.org/jeffwilcox/mpns)
 
@@ -176,8 +176,9 @@ NPM module written and maintained by [Jeff Wilcox] with contributions from:
 ## License
 
 MIT
-Relicensed in v2.1.3
-Previous Apache 2.0
+
+- Relicensed in v2.1.3
+- Previous Apache 2.0
 
 
 [Jeff Wilcox]: http://www.jeff.wilcox.name
