@@ -4,6 +4,10 @@
 
 A Node.js module for sending toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS), used by apps such as 4th & Mayor and services such as Azure Mobile Services.
 
+## March 2018 update: MPNS has been turned off
+
+According to [this forum posting by Microsoft](https://answers.microsoft.com/en-us/mobiledevices/forum/mdwindows-mdsettings-mdversionwp8/mobile-push-notification-services-are-ending-for/912395fa-9f1d-4390-a4de-7cb03ae3c933), the MPNS service has been turned off. I have not have time to confirm this, but wanted to add this update!
+
 ## Installation
 
 Via [npm][]:
