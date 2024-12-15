@@ -1,6 +1,4 @@
-# mpns
-
-[![build status](https://secure.travis-ci.org/jeffwilcox/mpns.png)](http://travis-ci.org/jeffwilcox/mpns)
+# mpns [obviously very abandoned]
 
 A Node.js module for sending toast and live tile updates to Windows Phones through the Microsoft Push Notification Service (MPNS), used by apps such as 4th & Mayor and services such as Azure Mobile Services.
 
